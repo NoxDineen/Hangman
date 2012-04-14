@@ -1,0 +1,19 @@
+Run the following to get started:
+
+```git clone git@github.com:ryan953/Hangman.git
+cd Hangman
+python ./make-bootstrap.py
+python ./install-bootstrap.py ./env```
+
+To run the tests:
+
+```cd test
+nosetests HangmanTest.py```
+
+and you should see
+
+    .
+    ----------------------------------------------------------------------
+   Ran 1 test in 0.001s
+   
+   OK
