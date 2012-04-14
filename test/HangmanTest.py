@@ -35,3 +35,14 @@ class TestHangman:
         ]
         for guess in guesses:
             assert self.game.hasLetter(guess.value) == guess.expected
+
+    def test_make_guess(self):
+        self.game.setPhrase(self.phrase)
+
+        guess = 'e'
+        result = self.game.makeGuess(guess)
+        assert result == ['e']
+
+        guess = 'x'
+        result = self.game.makeGuess(guess)
+        assert result == ['e', 'x']
