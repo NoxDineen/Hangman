@@ -20,3 +20,9 @@ class TestHangman:
         expected = "_____ _____"
 
         assert self.game.hiddenPhrase() == expected
+
+    def test_has_letter(self):
+        self.game.setPhrase(self.phrase)
+        guess = "e"
+
+        assert self.game.hasLetter(guess) == True

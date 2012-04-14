@@ -11,3 +11,5 @@ class Hangman:
     def hiddenPhrase(self):
         pass
 
+    def hasLetter(self, letter):
+        pass
