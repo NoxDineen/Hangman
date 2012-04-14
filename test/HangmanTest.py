@@ -2,7 +2,7 @@ from Hangman import Hangman
 
 
 class TestHangman:
-    def __inti__(self):
+    def __init__(self):
         self.game = Hangman()
         self.phrase = "Hello World"
 
