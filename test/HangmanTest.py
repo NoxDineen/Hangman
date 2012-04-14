@@ -15,14 +15,23 @@ class TestHangman:
         assert self.game.realPhrase() == self.phrase
 
     def test_phrase_is_hidden(self):
-        self.game.setPhrase(self.phrase)
-
-        expected = "_____ _____"
-
-        assert self.game.hiddenPhrase() == expected
+        phrases = [
+            {'plain': 'Hello World', 'hidden': '_____ _____'},
+            {'plain': "It's got an apostrophe", 'hidden': "__'_ ___ __ __________"},
+            {'plain': 'The number is 2 (two).', 'hidden': '___ ______ __ 2 (___).}'}
+        ]
+        for phrase in phrases:
+            self.game.setPhrase(phrase.text)
+            assert self.game.hiddenPhrase() == phrase.hidden
 
     def test_has_letter(self):
         self.game.setPhrase(self.phrase)
-        guess = "e"
-
-        assert self.game.hasLetter(guess) == True
+        guesses = [
+            {'value':'e', 'expected': True},  # this is in the string Hello World
+            {'value':'h', 'expected': True},  # this exists, but it's upper case, should return True anyway
+            {'value':'x', 'expected': False},  # this isn't in the string
+            {'value':123, 'expected': False},  # numbers wont exist in our phrase (digits will)
+            {'value':(1, 2,), 'expected': False},  # what's this? a tuple or something
+        ]
+        for guess in guesses:
+            assert self.game.hasLetter(guess.value) == guess.expected
