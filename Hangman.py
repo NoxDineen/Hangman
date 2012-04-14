@@ -7,3 +7,7 @@ class Hangman:
 
     def realPhrase(self):
         pass
+
+    def hiddenPhrase(self):
+        pass
+
